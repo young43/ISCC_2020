@@ -42,7 +42,7 @@
   - YOLO Config 파일
 
     - [**darknet_ros**] - yolo_network_config/weights
-    - publish[**darknet_ros**] - yolo_network_config/cfg
+    - [**darknet_ros**] - yolo_network_config/cfg
 
   - ROS 파라미터 load
 
@@ -107,7 +107,7 @@
   - src 위치
 
     - [**darknet_ros**] - src/yolo_object_detector_node.cpp
-    - [**darknet_ros**] - src/YoloObjectDetector.cpppure_pursuit
+    - [**darknet_ros**] - src/YoloObjectDetector.cpp
 
 
 
@@ -141,8 +141,8 @@
 - src 위치
   - _pure_pursuit_ : [**gps**] - [**pure_pursuit**] - src/pure_pursuit_node.cpp
   - _coordinate2pos_ : [**gps**] - [**pure_pursuit**] - src/coordinate2pos.cpp
-    - Subscribe  /utmk_coordinate
-    - Publish  /current_pose
+    - Subscribe:  /utmk_coordinate
+    - Publish:  /current_pose
   - _wgs84_to_utmk_ : [**gps**] - [**utmk_coordinate**] - src/wgs84_to_utmk.py
-    - Subscribe  /gps_front/fix
-    - Publish  /utmk_coordinate
+    - Subscribe:  /gps_front/fix
+    - Publish:  /utmk_coordinate
