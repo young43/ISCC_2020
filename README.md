@@ -23,7 +23,7 @@
 
 
 
-## LiDAR 장publish애물 회피
+## LiDAR 장애물 회피
 
 - pkg: [**avoid_obstacle**]
 - launch: avoid_abs.launch
