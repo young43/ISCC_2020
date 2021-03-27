@@ -49,7 +49,7 @@
     - [**darknet_ros**] - config/ros.yaml
 
       ```yaml
-      publishsubscribers:
+      subscribers:
         camera_reading:
           topic: /camera/rgb/image_raw
           queue_size: 1
@@ -108,8 +108,8 @@
 
     - [**darknet_ros**] - src/yolo_object_detector_node.cpp
     - [**darknet_ros**] - src/YoloObjectDetector.cpp
-
-
+      - Subscribe:  /camera/rgb/image_raw(=/usb_cam/image_raw)
+      - Publish:  /darknet_ros/found_object, /darknet_ros/bounding_boxes, /darknet_ros/detection_image
 
 ## GPS
 
@@ -118,6 +118,7 @@
 - src 위치
 
   - _gps_front_ : [**gps**] - [**ublox_gps**] - src/node.cpp
+    - Publish:  /fix (node명이 붙여져서 /gps_front/fix 되는 듯)
 
 - config: [**gps**] - [**ublox_gps**] - config/nmea1.yaml
 
@@ -140,6 +141,8 @@
 - pkg: [**pure_pursuit**]
 - src 위치
   - _pure_pursuit_ : [**gps**] - [**pure_pursuit**] - src/pure_pursuit_node.cpp
+    - Subscribe: Obstacle(/true_obs, /detected_obs), Pose(/current_pose), Yolo(/darknet_ros/bounding_boxes)
+    - Publish:  /control_value, /current_pose
   - _coordinate2pos_ : [**gps**] - [**pure_pursuit**] - src/coordinate2pos.cpp
     - Subscribe:  /utmk_coordinate
     - Publish:  /current_pose
